@@ -1,0 +1,332 @@
+
+Linux Commands
+
+1.	File and Directory Operations:
+
+  ls:- List files and directories in the current directory.
+        Eg: ls, ls /path/to/directory , ls -l
+		
+  cd:- Change the current directory.
+        Eg: cd /path/to/directory, cd ~ (HOME DIR), cd - (previous directory) , cd ../../..
+		
+  pwd:- Print the current working directory.
+  touch:- Create an empty file.
+          Eg : touch myfile.txt
+		  
+  mkdir:- Create a new directory.
+        Eg: mkdir my_directory , mkdir -p /path/to/new  directory (use -p flag)
+		
+  rm:- Remove files or directories.
+       Eg: mv olddir/ newdir/ , rm -r my_directory/ , rm -i myfile.txt
+	   
+  cp:- Copy files or directories.
+        Eg: cp sourcefile.txt destination/ (Copy a file to a new location) , cp -r sourcedir/ destination/ (Recursively)
+		
+  mv:- Move or rename files or directories.
+       Eg: mv oldfile.txt newfile.txt , mv olddir/ newdir/
+       
+  cat:- Concatenate and display file content (cat, less, more):
+       Eg: cat myfile.txt , 
+  head and tail:- Display the beginning or end of a file.
+      Eg: head myfile.txt (First 10 Lines), head -n 20 myfile.txt (First 20 Lines) , head file1.txt file2.txt(First 10 Lines )
+	      Some command | head (View the First Few Lines of a Command's Output (Piped)).
+		  
+	  Eg: tail myfile.txt (last 10 Lines), tail -n 20 myfile.txt (last 20 Lines) , tail file1.txt file2.txt(last 10 Lines )
+	      Some command | tail (View the last Few Lines of a Command's Output (Piped)).
+		  
+  find:- Search for files and directories.
+       Eg: find . -name myfile.txt  , find . -type f -mtime -7 (Search for files modified within the last 7 days)
+	   
+  grep:- Search for patterns in text.
+       Eg: grep "pattern" file.txt  , grep -i "pattern" file.txt (-i:- Case-Insensitive, -n:- Display Line Numbers with Matching Lines, -o:- Display Only Matching Text)
+	   
+  chmod:- Change file permissions.
+      Eg: chmod 755 file.txt , chmod u+rw,go+r file.txt
+	  
+     Octal Notation:
+
+     In octal notation, each digit represents the permission for a different user group: owner, group, and others.
+
+     4 corresponds to read permission (r).
+     2 corresponds to write permission (w).
+     1 corresponds to execute permission (x).
+     Here's how you can use octal notation to set permissions:
+
+      0: No permission (---)
+      1: Execute permission (--x)
+      2: Write permission (-w-)
+      3: Write and execute permissions (-wx)
+      4: Read permission (r--)
+      5: Read and execute permissions (r-x)
+      6: Read and write permissions (rw-)
+      7: Read, write, and execute permissions (rwx)
+	  
+	  Symbolic Notation:
+
+      In symbolic notation, you specify permissions for each user group using letters and symbols.
+
+      u: User (owner)
+      g: Group
+      o: Others
+      a: All (equivalent to ugo)
+      +: Add permissions
+      -: Remove permissions
+      =: Set permissions
+      Here's how you can use symbolic notation to modify permissions:
+
+      u+rw: Add read and write permissions for the user.
+      go-rx: Remove read and execute permissions for the group and others.
+      a=rx: Set read and execute permissions for all (equivalent to chmod +rx).
+  
+  chown:- Change file ownership.
+        Eg:     chown -R newowner directory/
+  df:- Display disk space usage.
+     Eg: df -h (Human-Readable Format) , df -i (Display Inode Usage)
+  
+  du:- Show directory space usage.
+    Eg: du -h /path/to/directory (Display Disk Usage for a Directory and Its Subdirectories)
+        
+2. File Content Manipulation:
+    
+  nano, vim, emacs:- Text editors for creating and editing files.
+     1.Open a File for Editing:
+	   Eg: nano myfile.txt
+	   
+	 2. Save Changes:
+
+         Press Ctrl + O.
+         Confirm the file name and press Enter.
+     3. Exit Nano:
+
+         Press Ctrl + X.
+         If there are unsaved changes, Nano will prompt you to save them.
+     4. Navigate within the File:
+
+         Use arrow keys for navigation.
+         Use Page Up and Page Down to scroll.
+         Use Ctrl + V for page down and Ctrl + Y for page up.  
+	
+     5. Select and Copy Text:
+
+         Position the cursor at the beginning of the text.
+         Press Ctrl + Shift + 6 to start selecting.
+         Use arrow keys to highlight the text.
+         Press Ctrl + K to cut the selected text.
+         Move to the desired location and press Ctrl + U to paste the cut text.	
+		 
+	 6. Search for Text:
+
+         Press Ctrl + W to initiate a search.
+         Enter the search term and press Enter.
+         Use Ctrl + W to find the next occurrence.
+     7. Replace Text:
+
+         Press Ctrl + \ to initiate a search and replace.
+         Enter the search term and press Enter.
+         Enter the replacement text and press Enter to replace the first occurrence.
+         To replace all occurrences, press A (for "All").
+     8. Undo and Redo:
+
+         Press Ctrl + Shift + 6 to start selecting.
+         Use arrow keys to highlight the text you want to cut.
+         Press Ctrl + K to cut the text.
+         To undo, press Ctrl + Shift + 6 again.
+         To redo, press Ctrl + U to paste the previously cut text.	 
+  vim:-
+  ------
+     1. Open a File for Editing:
+	     Eg: vim myfile.txt
+	 2. Save Changes:
+
+         In normal mode, press : to enter command mode.
+         Type w to save changes.
+         To save and exit, type wq and press Enter.
+     3. Exit Vim:
+
+         In normal mode, press : to enter command mode.
+         Type q to quit without saving.
+         To force exit without saving, type q!.
+         To save and exit, type wq and press Enter.
+     4. Navigate within the File:
+
+         Use arrow keys for navigation.
+         Use j and k for up and down.
+         Use Ctrl + F for page down and Ctrl + B for page up.
+     5. Select and Copy Text:
+
+         Position the cursor at the beginning of the text.
+         Enter visual mode by pressing v.
+         Use arrow keys to highlight the text.
+         Press y to copy (yank) the selected text.
+         Move to the desired location and press p to paste.	
+	 6. Search for Text:
+
+         In normal mode, press / to initiate a search.
+         Enter the search term and press Enter.
+         Use n to find the next occurrence and N to find the previous one.
+     7. Replace Text:
+
+         In normal mode, press : to enter command mode.
+         Type %s/searchterm/replacement/g to replace all occurrences of "searchterm" with "replacement."
+     8. Undo and Redo:
+
+         In normal mode, press u to undo the last action.
+         To redo, press Ctrl + r.	 
+	   
+
+
+  less or more:- View file content page by page.
+       Eg: less myfile.txt , more myfile.txt
+	   
+  wc:- Count lines, words, and characters in a file.
+       Eg: wc filename.txt , wc -l filename.txt (To count only the number of lines in a file)
+	   
+  sed:- Stream editor for text manipulation.
+      Eg: sed 's/apple/banana/' filename.txt 
+	  
+  awk:- Text processing tool for pattern matching and data extraction.
+      Eg: awk -F',' '{print $2}' filename.csv
+ 
+3. Process Management:
+
+  ps:- List running processes.
+     Eg: ps , ps aux
+	 
+  top or htop:- Monitor system resource usage and running processes.
+      Eg: top  , htop
+	  
+  kill:- Terminate processes by process ID (PID).
+     Eg: kill PID
+	 
+  pkill:- Terminate processes by name.
+     Eg: pkill myapp
+  
+  killall:- Terminate processes by name.
+     Eg: killall myprocess (Terminate all processes named "myprocess.")
+
+
+4. System Information:
+
+  uname:- Display system information.
+    Eg: uname -a (Display the system's kernel name, version, and architecture)
+	
+  hostname:- Display or set the system's hostname.
+    Eg: hostname
+	
+  uptime:- Show system uptime.
+     Eg: uptime (Display system uptime and load averages)
+  
+  free:- Display system memory usage.
+      Eg: free -h
+  
+  df and du:- Disk space usage.
+     Eg: df -h 
+  
+  lscpu:- Display CPU information.
+  lsblk:- List block devices.  
+  
+  cat /etc/os-release :- Display information about the operating system and distribution.
+  
+5. User and Group Management:
+
+  who:- Display currently logged-in users.
+     Eg: who , who -a (Display a more detailed list of currently logged-in users, including terminal, login time, and remote IP addresses)  
+	 
+  w:- Show who is logged in and what they are doing.
+      Eg: w, w –h (Display user information and the header line to provide context)
+	  
+  id:- Display user and group information.
+      Eg: id , id username (Display information for a specific user)
+
+  useradd and userdel:- Add and delete users.
+     Eg: sudo useradd john
+	 
+  passwd:- Change user passwords.
+     Eg: sudo passwd john
+	 
+  groupadd and groupdel:- Add and delete groups.
+     Eg: sudo groupadd developers (Create a new group named "developers")
+
+6. Network and Connectivity:
+
+  ifconfig or ip:- Display network interfaces and configure network settings.
+     Eg: ifconfig/ip address show (ifconfigDisplay information for all network interfaces.)
+	 
+  ping:- Send ICMP echo requests to a host.
+     Eg: ping google.com (Ping a remote host)
+	  
+  netstat or ss:- Display network statistics.
+     Eg: netstat -tuln (Display all active network connections.) , netstat -rn (Display routing table information)
+	 
+  ssh:- Securely connect to remote servers.
+  scp:- Securely copy files between hosts.
+  wget or curl:- Download files from the internet.
+    Eg: wget https://example.com/file.zip
+	
+  nc:- Netcat, a versatile networking utility for TCP and UDP.  
+  
+7. Package Management (Package Managers Vary by Linux Distribution):
+
+  apt (Debian/Ubuntu)
+     Used in: Debian, Ubuntu, and their derivatives.
+     Commands:
+       apt-get: Used for package installation, updates, and removal.
+       apt-cache: Used to search for packages and display package information.
+       dpkg: The underlying package management tool that APT relies on for low-level operations.
+   
+  yum (Red Hat/CentOS)
+     Used in: CentOS, Red Hat Enterprise Linux (RHEL), Fedora, and their derivatives.
+       Commands:
+         yum install: Used for package installation.
+         yum update: Used for updating installed packages.
+         yum remove: Used for package removal.
+		 
+  dnf (Fedora)
+  
+     Used in: Fedora, CentOS 8 and later, RHEL 8 and later.
+       Commands:
+         dnf install: Used for package installation.
+         dnf update: Used for updating installed packages.
+         dnf remove: Used for package removal.
+		 
+  zypper (openSUSE)
+  
+    ZYpp (ZENworks Package Management):
+
+      Used in: openSUSE, SUSE Linux Enterprise, and their derivatives.
+        Commands:
+          zypper in: Used for package installation.
+          zypper up: Used for updating installed packages.
+          zypper rm: Used for package removal.
+		  
+  pacman (Arch Linux)
+  
+    Pacman:
+
+      Used in: Arch Linux and Arch-based distributions.
+        Commands:
+          pacman -S: Used for package installation.
+          pacman -Syu: Used for updating the system and installed packages.
+          pacman -R: Used for package removal.
+  
+  
+8. File Compression and Archiving:
+
+  tar: Create and extract tar archives.
+     Eg: Create a tar archive: tar -cvf archive.tar files_or_directories
+         Extract a tar archive: tar -xvf archive.tar
+		 
+  gzip, bzip2, xz: Compress and decompress files.
+    Eg: Compress a file: gzip filename
+        Decompress a gzip file: gunzip filename.gz
+		
+  zip and unzip: Create and extract zip archives. 
+     Eg: Create a Zip archive: zip -r archive.zip files_or_directories
+         Extract a Zip archive: unzip archive.zip
+
+9. Shell Scripting:
+
+  bash, sh:- Execute shell scripts.
+  chmod +x:- Make a script executable.
+  ./script.sh:- Run a shell script.  
+
